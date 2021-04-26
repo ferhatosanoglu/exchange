@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageService } from '../../utils'
+import { LanguageService } from '../../../utils'
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',

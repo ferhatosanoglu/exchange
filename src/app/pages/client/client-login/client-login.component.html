@@ -1,0 +1,16 @@
+<div class="row vh-100 w-100 m-0">
+    <div class="login-form m-auto p-5 ">
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+            <div class="login-form-avatar mx-auto mb-5 p-3 text-center"><i class="fa fa-user"></i>
+            </div>
+            <h4>Login to Your Account</h4>
+            <input type="text" class="form-control login-form-input mt-5" name="Username" id="Username"
+                placeholder="{{ 'Username' | translate }}" #Username="ngModel" [(ngModel)]="model.Username" required />
+            <input type="text" type="password" name="Password" id="Password" placeholder="{{ 'Password' | translate }}"
+                #Password="ngModel" [(ngModel)]="model.Password" required class="form-control login-form-input my-3"
+                placeholder="Email">
+            <a href="#">Sing up</a>
+            <input type="submit" class="login-form-btn mt-3 btn-primary btn-block btn-lg" value="Login">
+        </form>
+    </div>
+</div>
