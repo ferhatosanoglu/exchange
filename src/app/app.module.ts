@@ -9,6 +9,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ClientLoginComponent } from './pages';
+import { LogUpComponent, LogInComponent } from './components';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -17,10 +19,13 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     routingComponents,
-    ClientLoginComponent
+    ClientLoginComponent,
+    LogInComponent,
+    LogUpComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MatModule,

@@ -1,0 +1,21 @@
+.login{
+    &__title{
+        color: #ff8303;
+        font-size: 3rem;
+    }
+    &__button {
+        background-color: #ff8303;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        opacity: 0.6;
+        transition: 0.3s;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        height: 52px;
+        &:hover {opacity: 1}
+    }
+}

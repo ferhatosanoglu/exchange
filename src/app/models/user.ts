@@ -1,4 +1,4 @@
-import { Portfolio } from './Portfolio';
+import { Wallet } from './Wallet';
 export class User {
     Id!: number;
     Name!: string;
@@ -9,5 +9,5 @@ export class User {
     Password!: number;
     Phone!: number;
     Adress!: string;
-    Portofolio!: Portfolio[];
+    Wallet!: Wallet[];
 }
