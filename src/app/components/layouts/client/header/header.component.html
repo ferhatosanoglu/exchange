@@ -1,0 +1,21 @@
+<nav class="header navbar navbar-expand  navbar-light">
+    <ul class="navbar-nav">
+        <h1 class="my-auto header__text"><b>Exchange</b></h1>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="flag-icon flag-icon-{{ lang }} lang"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right p-0">
+                <a (click)="setLang('tr')" class="dropdown-item lang__selection" [ngClass]="{'active': lang=='tr'}">
+                    <i class="flag-icon flag-icon-tr mr-2"></i> Türkçe
+                </a>
+                <a (click)="setLang('en')" class="dropdown-item lang__selection" [ngClass]="{'active': lang=='us'}">
+                    <i class="flag-icon flag-icon-us mr-2"></i> English
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>

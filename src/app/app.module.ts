@@ -8,9 +8,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ClientLoginComponent } from './pages';
 import { LogUpComponent, LogInComponent } from './components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  ClientLoginComponent, HomepageComponent
+} from './pages';
+import { CardComponent } from './components/card/card.component';
+import { HeaderComponent } from './components/layouts/client/header/header.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -20,8 +24,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     routingComponents,
     ClientLoginComponent,
+    feat-creating-the-logup-page
     LogInComponent,
     LogUpComponent
+    CardComponent,
+    HeaderComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

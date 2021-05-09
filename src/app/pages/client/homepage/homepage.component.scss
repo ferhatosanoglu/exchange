@@ -1,1 +1,10 @@
-
+.homepage{
+    width: 10vw;
+    &__markets{
+        border:5px solid #353535;
+    }
+    &__markets-header{
+        color: #ff8303;
+        background-color: #353535;
+    }
+}
