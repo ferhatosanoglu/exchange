@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './utils'
+import { AuthGuard } from './utils';
+import {
+  ClientLayoutComponent
+} from './components/layouts';
 import {
   HomepageComponent,
   ClientLoginComponent,
@@ -9,7 +12,7 @@ import {
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    component: ClientLayoutComponent,
     children: [
       {
         path: '',
@@ -29,4 +32,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomepageComponent];
+export const routingComponents = [ClientLayoutComponent];
