@@ -8,6 +8,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LogUpComponent, LogInComponent } from './components';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   ClientLoginComponent, HomepageComponent
 } from './pages';
@@ -22,12 +24,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     routingComponents,
     ClientLoginComponent,
+    feat-creating-the-logup-page
+    LogInComponent,
+    LogUpComponent
     CardComponent,
     HeaderComponent,
     HomepageComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MatModule,
