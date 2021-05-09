@@ -62,4 +62,8 @@ export class AuthService {
       return false;
     }
   }
+  async logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = '/';
+  }
 }

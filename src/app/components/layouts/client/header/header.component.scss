@@ -1,0 +1,15 @@
+.header {
+    z-index: 998;
+    background-color: #353535;
+    &__text{
+      color: #ff8303;
+    }
+}
+.lang {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    &__selection {
+      cursor: pointer;
+    }
+}
