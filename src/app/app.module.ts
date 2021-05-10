@@ -8,14 +8,19 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { LogUpComponent, LogInComponent } from './components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/layouts/client/header/header.component';
+import {
+  LogUpComponent,
+  LogInComponent,
+  WalletComponent,
+  AddProductComponent,
+  AddMoneyComponent,
+  CardComponent
+} from './components';
 import {
   ClientLoginComponent, HomepageComponent
 } from './pages';
-import { CardComponent } from './components/card/card.component';
-import { HeaderComponent } from './components/layouts/client/header/header.component';
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -24,12 +29,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     routingComponents,
     ClientLoginComponent,
-    feat-creating-the-logup-page
     LogInComponent,
-    LogUpComponent
+    LogUpComponent,
     CardComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    WalletComponent,
+    AddProductComponent,
+    AddMoneyComponent
   ],
   imports: [
     BrowserModule,

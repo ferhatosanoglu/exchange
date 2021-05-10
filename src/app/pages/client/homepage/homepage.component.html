@@ -3,6 +3,59 @@
         <div class="col-12">
             <div class="row m-0 homepage__markets">
                 <div class="col-12 p-1 pl-3 m-0 homepage__markets-header">
+                    <h1 class="my-auto"><b>Wallet</b></h1>
+                </div>
+                <div class="col-12">
+                    <div class="row m-0 p-0 w-100">
+                        <div class="col-12 my-3">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <h1 class="my-auto text-white"><b>Ferhat Osanoglu</b></h1>
+                                    </div>
+                                    <div class="row">
+                                        <h1 class="my-auto text-white"><b>Varlık: </b>500 tl</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-outline-warning" (click)="openAddProduct()">Ürün
+                                                ekle</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-outline-warning" (click)="openAddMoney()">para
+                                                ekle</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row homepage__wallet__table mt-3">
+                                <table class="table table-striped text-white">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ 'Ürün' | translate }}</th>
+                                            <th>{{'Miktarı' | translate}}</th>
+                                            <th>{{'Fiyatı' | translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> buğday </td>
+                                            <td> 500 </td>
+                                            <td> 5 </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <div class="row m-0 homepage__markets">
+                <div class="col-12 p-1 pl-3 m-0 homepage__markets-header">
                     <h1 class="my-auto"><b>Markets</b></h1>
                 </div>
                 <div class="col-12">
