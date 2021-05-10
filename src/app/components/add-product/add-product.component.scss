@@ -1,0 +1,28 @@
+.mat-input-element:disabled {
+    color: black;
+}
+
+.institution-dialog {
+    background-color: #fbf1c7;
+    &__header {
+        background-color: #ff8303 !important;
+        margin: -24px -24px 0px -24px;
+        box-shadow: 0 8px 16px 0 #ff8303;
+        height: 50px;
+        color: #fff;
+    }
+
+    &__content {
+        padding: 20px 10px 0px 10px;
+    }
+}
+.modal-header {
+    border-bottom: none;
+}
+
+.textarea {
+    resize: none;
+}
+.btn-orange{
+    background-color: #ff8303;
+}
