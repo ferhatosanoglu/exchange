@@ -15,6 +15,7 @@ import {
 } from './pages';
 import { CardComponent } from './components/card/card.component';
 import { HeaderComponent } from './components/layouts/client/header/header.component';
+import { WalletComponent } from './components/wallet/wallet.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -24,12 +25,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     routingComponents,
     ClientLoginComponent,
-    feat-creating-the-logup-page
     LogInComponent,
-    LogUpComponent
+    LogUpComponent,
     CardComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,

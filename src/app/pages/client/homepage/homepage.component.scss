@@ -7,4 +7,21 @@
         color: #ff8303;
         background-color: #353535;
     }
+    &__wallet{
+        &__table{
+            max-height: 300px !important;
+            overflow: auto;           
+        }
+    }
+}
+tr:hover , th{
+    color: #ff8303 !important;
+}
+.btn-outline-warning{
+    color: #ff8303 !important;
+    border-color: #ff8303 !important;
+    &:hover{
+        background-color: #ff8303 !important;
+        color: #353535 !important;
+    }
 }
