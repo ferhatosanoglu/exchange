@@ -7,15 +7,16 @@
   </div>
 </div>
 <mat-dialog-content class="mat-typography institution-dialog__content">
-  <form>
+  <form #moneyForm="ngForm" (ngSubmit)="addMoney(moneyForm)">
     <div class="form-group mt-2">
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>{{ "Money amount" | translate }}</mat-label>
-        <input matInput maxlength="50" type="text" placeholder="{{ 'Enter Money Name' | translate }}" required />
+        <input matInput maxlength="50" type="number" name="Amount" #Amount="ngModel" [(ngModel)]="model.Amount"
+          placeholder="{{ 'Enter Money Name' | translate }}" required />
       </mat-form-field>
     </div>
     <div class="form-group">
-      <button class="btn btn-orange w-100">
+      <button type="submit" class="btn btn-orange w-100">
         {{ "Save" | translate }}
       </button>
     </div>
