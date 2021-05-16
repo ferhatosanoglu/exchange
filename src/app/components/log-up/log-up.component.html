@@ -2,47 +2,68 @@
     <div class="row">
         <h1 class="logup__title">Log up !</h1>
     </div>
-    <div class="row w-100">
-        <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100" appearance="outline">
-            <mat-label>{{"Name" | translate}}</mat-label>
-            <input matInput placeholder="{{'Name' | translate}}" required>
-        </mat-form-field>
-        <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100" appearance="outline">
-            <mat-label>{{"Surname" | translate}}</mat-label>
-            <input matInput placeholder="{{'Surname' | translate}}" required>
-        </mat-form-field>
-    </div>
-    <div class="row w-100">
-        <mat-form-field class="mx-auto w-100" appearance="outline">
-            <mat-label>{{"User Name" | translate}}</mat-label>
-            <input matInput placeholder="{{'User Name' | translate}}" required>
-        </mat-form-field>
-    </div>
-    <div class="row w-100">
-
-        <mat-form-field class="mx-auto w-100" appearance="outline">
-            <mat-label>{{"Email Adress" | translate}}</mat-label>
-            <input matInput placeholder="{{'Email Adres' | translate}}" required>
-        </mat-form-field>
-    </div>
-    <div class="row w-100">
-
-        <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100" appearance="outline">
-            <mat-label>{{"TC No" | translate}}</mat-label>
-            <input matInput placeholder="{{'TC No' | translate}}" required>
-        </mat-form-field>
-        <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100" appearance="outline">
-            <mat-label>{{"Phone" | translate}}</mat-label>
-            <input matInput placeholder="{{'Phone' | translate}}" required>
-        </mat-form-field>
-    </div>
-    <div class="row w-100">
-        <mat-form-field class="mx-auto w-100" appearance="outline">
-            <mat-label>{{"Password" | translate}}</mat-label>
-            <input matInput placeholder="{{'Password' | translate}}" required>
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <button class="logup__button mx-auto">Log up</button>
-    </div>
+    <form #userForm='ngForm' (ngSubmit)="insertActionAsync(userForm)">
+        <div class="row w-100">
+            <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100" appearance="outline">
+                <mat-label>{{"Name" | translate}}</mat-label>
+                <input matInput type="text" placeholder="{{'Name' | translate}}" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"
+                    name="Name" #Name="ngModel" [(ngModel)]="_model.Name" required>
+                <mat-error *ngIf="Name.invalid && Name.touched">
+                    {{ "Name field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100" appearance="outline">
+                <mat-label>{{"Surname" | translate}}</mat-label>
+                <input matInput type="text" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="Surname" #Surname="ngModel"
+                    [(ngModel)]="_model.Surname" placeholder="{{'Surname' | translate}}" required>
+                <mat-error *ngIf="Surname.invalid && Surname.touched">
+                    {{ "Surname field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row w-100">
+            <mat-form-field class="mx-auto w-100" appearance="outline">
+                <mat-label>{{"User Name" | translate}}</mat-label>
+                <input matInput type="text" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="Username" #Username="ngModel"
+                    [(ngModel)]="_model.Username" placeholder="{{'User Name' | translate}}" required>
+                <mat-error *ngIf="Username.invalid && Username.touched">
+                    {{ "Username field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row w-100">
+            <mat-form-field class="mx-auto w-100" appearance="outline">
+                <mat-label>{{"Email Adress" | translate}}</mat-label>
+                <input matInput type="text" pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="Email"
+                    #Email="ngModel" [(ngModel)]="_model.Email" placeholder="{{'Email Adres' | translate}}" required>
+                <mat-error *ngIf="Email.invalid && Email.touched">
+                    {{ "Email field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row w-100">
+            <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100" appearance="outline">
+                <mat-label>{{"TC No" | translate}}</mat-label>
+                <input matInput pattern="^[0-9]+$" name="TC" #TC="ngModel" maxlength="11" minlength="11"
+                    [(ngModel)]="_model.TC" placeholder="{{'TC No' | translate}}" required>
+                <mat-error *ngIf="TC.invalid && TC.touched">
+                    {{ "TC field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100" appearance="outline">
+                <mat-label>{{"Phone" | translate}}</mat-label>
+                <input matInput pattern="^[0-9]+$" name="Phone" #Phone="ngModel" [(ngModel)]="_model.Phone"
+                    placeholder="{{'Phone' | translate}}" required>
+                <mat-error *ngIf="Phone.invalid && Phone.touched">
+                    {{ "Phone field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row w-100">
+            <mat-form-field class="mx-auto w-100" appearance="outline">
+                <mat-label>{{"Password" | translate}}</mat-label>
+                <input matInput type="password" name="Password" #Password="ngModel" [(ngModel)]="_model.Password"
+                    placeholder="{{'Password' | translate}}" required>
+                <mat-error *ngIf="Password.invalid && Password.touched">
+                    {{ "Password field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <button type="submit" class="logup__button mx-auto" [disabled]="disableButton">Log up</button>
+        </div>
+    </form>
 </div>

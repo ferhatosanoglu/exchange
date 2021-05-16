@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './utils';
 import {
   ClientLayoutComponent
 } from './components/layouts';
@@ -11,17 +10,17 @@ import {
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: ClientLayoutComponent,
     children: [
       {
-        path: '',
+        path: ':Id',
         component: HomepageComponent,
       },
     ]
   },
   {
-    path: 'login',
+    path: '',
     component: ClientLoginComponent,
     data: { title: 'Login' }
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageService, AuthService } from '../../../../utils';
+import { LanguageService } from '../../../../utils';
 import { MatDialog } from '@angular/material/dialog';
 import { from } from 'rxjs';
 
@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private _languageService: LanguageService,
-    private _authService: AuthService,
     private _dialog: MatDialog
   ) { }
 
@@ -26,9 +25,5 @@ export class HeaderComponent implements OnInit {
   setLang(lang: string) {
     this.lang = lang == 'en' ? 'us' : lang;
     this._languageService.setLanguage(lang);
-  }
-
-  async signout() {
-    await this._authService.logout();
   }
 }
