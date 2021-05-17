@@ -1,0 +1,24 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="modal-header">
+        <h2>{{ "Buy" | translate }}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography institution-dialog__content">
+    <form #buyForm="ngForm" (ngSubmit)="Buy(buyForm)">
+        <div class="form-group mt-2">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "Amount" | translate }}</mat-label>
+                <input matInput maxlength="50" type="number" name="Amount" #Amount="ngModel" [(ngModel)]="model.Amount"
+                    placeholder="{{ 'Enter Money Name' | translate }}" required />
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-orange w-100">
+                {{ "Save" | translate }}
+            </button>
+        </div>
+    </form>
+</mat-dialog-content>

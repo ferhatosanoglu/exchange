@@ -41,7 +41,8 @@ export class UserService {
     return await this._apiFetchService.requestAsync(
       'DELETE',
       'Users',
-      values
+      values,
+      true
     );
   }
 

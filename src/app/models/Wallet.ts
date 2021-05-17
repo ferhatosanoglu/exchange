@@ -1,7 +1,9 @@
 export class Wallet {
-    Id!: number;
+    id!: number;
     Name!: string;
     Amount!: number;
     UserId!: number;
-    state!: boolean;
+    Username!: string;
+    State!: boolean;
+    Price!: number;
 }

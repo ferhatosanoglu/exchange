@@ -13,8 +13,11 @@
                                     <div class="row">
                                         <h1 class="my-auto text-white"><b>{{user.Name}} {{user.Surname}}</b></h1>
                                     </div>
-                                    <div class="row">
-                                        <h1 class="my-auto text-white"><b>Varlık: </b>500 tl</h1>
+                                    <div class="row" *ngFor="let product of products">
+                                        <h1 class="my-auto text-white"
+                                            *ngIf="product.State == true && product.UserId==user.id && product.Name == 'tl'">
+                                            <b>{{'Asset' | translate}}: </b>{{product.Amount}} tl
+                                        </h1>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -36,15 +39,18 @@
                                         <tr>
                                             <th>{{ 'Product' | translate }}</th>
                                             <th>{{'Amount' | translate}}</th>
-                                            <th>{{'Price' | translate}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td> buğday </td>
-                                            <td> 500 </td>
-                                            <td> 5 </td>
-                                        </tr>
+                                        <tr *ngFor="let product of products">
+                                            <td
+                                                *ngIf="product.State == true && product.UserId==user.id && product.Name != 'tl'">
+                                                {{
+                                                product.Name }}</td>
+                                            <td
+                                                *ngIf="product.State == true && product.UserId==user.id && product.Name != 'tl'">
+                                                {{
+                                                product.Amount }}</td>
                                     </tbody>
                                 </table>
                             </div>
@@ -60,8 +66,8 @@
                 </div>
                 <div class="col-12">
                     <div class="row m-0 p-0 w-100">
-                        <div class="col-md-4 my-3 mx-auto">
-                            <app-card></app-card>
+                        <div class="col-md-4 my-3 mx-auto" *ngFor="let market of markets">
+                            <app-card [market]="market"></app-card>
                         </div>
                     </div>
                 </div>
