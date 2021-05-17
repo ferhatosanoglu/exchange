@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class MarketService {
 
   constructor(
     private _apiFetchService: ApiFetchService,
@@ -16,32 +16,19 @@ export class ProductService {
     private _router: Router
   ) { }
 
-  async addProduct(values: object) {
-    return await this._apiFetchService.requestAsync(
-      'POST',
-      'Wallet',
-      values
-    );
-  }
-
   async listAsync() {
     return await this._apiFetchService.requestAsync(
       'GET',
-      'Wallet',
+      'Markets',
       null!
     );
   }
-  async confirmProduct(value: any) {
-    await this._apiFetchService.requestAsync(
-      'DELETE',
-      `Wallet/${value.id}`,
-      value
+  async buy(id: number, Amount: number) {
+    const product: any = await this._apiFetchService.requestAsync(
+      'GET',
+      `Markets/${id}`,
+      null!
     );
-    value.State = true;
-    return await this._apiFetchService.requestAsync(
-      'POST',
-      `Wallet`,
-      value
-    );
+    console.log(product);
   }
 }

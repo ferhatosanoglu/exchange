@@ -6,6 +6,7 @@ import {
 import {
   HomepageComponent,
   ClientLoginComponent,
+  AdminComponent
 } from './pages';
 
 const routes: Routes = [
@@ -16,14 +17,26 @@ const routes: Routes = [
       {
         path: ':Id',
         component: HomepageComponent,
-      },
+        data: { title: 'Exchange' }
+      }
+    ]
+  },
+  {
+    path: "admin",
+    component: ClientLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: AdminComponent,
+        data: { title: 'Admin' }
+      }
     ]
   },
   {
     path: '',
     component: ClientLoginComponent,
     data: { title: 'Login' }
-  }
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,26 @@
+<div class="card m-3 p-3">
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'User Name' | translate }}</th>
+                    <th>{{ ' Product Name' | translate }}</th>
+                    <th>{{ 'Amount' | translate }}</th>
+                    <th>{{ 'Confirmation' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td *ngIf="product.State ==false"> {{ product.Username }} </td>
+                    <td *ngIf="product.State ==false"> {{ product.Name }}</td>
+                    <td *ngIf="product.State ==false"> {{ product.Amount }}</td>
+                    <td *ngIf="product.State ==false">
+                        <button type="button" class="btn btn-outline-success"
+                            (click)="confirmProduct(product)">{{'Confirm' |
+                            translate}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

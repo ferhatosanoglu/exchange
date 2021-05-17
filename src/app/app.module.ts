@@ -21,6 +21,8 @@ import {
 import {
   ClientLoginComponent, HomepageComponent
 } from './pages';
+import { AdminComponent } from './pages/admin/admin.component';
+import { BuyComponent } from './components/buy/buy.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -36,7 +38,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomepageComponent,
     WalletComponent,
     AddProductComponent,
-    AddMoneyComponent
+    AddMoneyComponent,
+    AdminComponent,
+    BuyComponent
   ],
   imports: [
     BrowserModule,
