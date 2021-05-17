@@ -1,9 +1,9 @@
 # Exchange
+Login or register for enter the system. Then you can add money or product to your portfolio the way you want(admin approval required).  you can buy  product tahat other people sell 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Development server
-
+npm pockets install with run `npm install`. 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
