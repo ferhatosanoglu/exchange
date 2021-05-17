@@ -29,6 +29,5 @@ export class MarketService {
       `Markets/${id}`,
       null!
     );
-    console.log(product);
   }
 }
