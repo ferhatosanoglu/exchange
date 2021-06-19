@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Wallet } from '../../models';
-import { LanguageService, ProductService } from '../../utils';
+import { ProductService } from '../../utils';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -15,22 +16,33 @@ import { NgForm } from '@angular/forms';
 export class AddProductComponent implements OnInit {
 
   constructor(
-    private _productServices: ProductService,
-    private _languageService: LanguageService,
+    private _productService: ProductService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
+
+    private dialogRef: MatDialogRef<AddProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   model: Wallet = new Wallet();
 
   ngOnInit(): void { }
+  _productRenew: boolean = false;
 
   addProduct(productForm: NgForm) {
+    let notification: any = {
+      message: '',
+      panelClass: '',
+    };
     productForm.value["UserId"] = this.data.UserId;
-    productForm.value["state"] = false;
+    productForm.value["State"] = false;
     if (productForm.valid) {
-      this._productServices.addProduct(productForm.value);
+      this._translateService
+        .get('Product registration completed')
+        .subscribe((value) => (notification.message = value));
+      notification.panelClass = 'notification__success';
+      this._productService.addProduct(productForm.value);
+      this.dialogRef.close(this._productRenew);
     } else {
       let errorMessage: string;
       this._translateService
@@ -41,5 +53,11 @@ export class AddProductComponent implements OnInit {
         panelClass: 'notification__error',
       });
     }
+    this._snackBar.open(notification.message, 'X', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom',
+      panelClass: notification.panelClass,
+    });
   }
 }

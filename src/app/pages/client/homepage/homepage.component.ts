@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
   Id = this._activatedRoute.snapshot.paramMap.get('Id');
   markets!: any;
   async ngOnInit() {
-    this.products = <Array<Wallet>>await this._productService.listAsync();
+    this.products = <Array<Wallet>>await this._productService.findAsync(this.Id, true);
     this.user = <User>(await this._userService.findAsync(this.Id));
     this.markets = await this._marketService.listAsync()
   }

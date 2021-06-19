@@ -1,28 +1,22 @@
-<div class="container  h-100 w-100">
-    <form #loginForm="ngForm" class="h-100" (ngSubmit)="onLogin(loginForm)">
-        <div class="row h-25 d-flex align-items-start">
-            <h1 class="login__title">Log in !</h1>
-        </div>
-        <div class="row h-50 d-flex align-items-center">
-            <div class="col-12 mx-auto">
-                <div class="row">
-                    <mat-form-field class="mx-auto w-100" appearance="outline">
-                        <mat-label>{{"User Name" | translate}}</mat-label>
-                        <input matInput type="text" maxlength="20" name="Username" #Username="ngModel"
-                            [(ngModel)]="model.Username" placeholder="{{'User Name' | translate}}" required>
-                    </mat-form-field>
-                </div>
-                <div class="row mt-3">
-                    <mat-form-field class="mx-auto w-100" appearance="outline">
-                        <mat-label>{{"Password" | translate}}</mat-label>
-                        <input matInput type="password" name="Password" #Password="ngModel" [(ngModel)]="model.Password"
-                            placeholder="{{'Password' | translate}}" required>
-                    </mat-form-field>
-                </div>
-            </div>
-        </div>
-        <div class="row h-25 d-flex align-items-end">
-            <button type="submit" class="login__button mx-auto">Log in</button>
-        </div>
+<div class="row">
+    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+        <img src="/assets/image/Wavy_Bus-23_Single-05.jpg" style="height:225px;width: 80%;margin-left: 10%;">
+        <mat-form-field class="w-100">
+            <mat-label>{{ "User Name" | translate }}</mat-label>
+            <input matInput type="text" maxlength="20" name="Username" #Username="ngModel" [(ngModel)]="_model.Username"
+                placeholder="{{'User Name' | translate}}" required>
+            <mat-error *ngIf="Username.invalid && Username.touched">
+                {{ "Name field must be filled" | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100">
+            <mat-label>{{"Password" | translate}}</mat-label>
+            <input matInput type="password" name="Password" #Password="ngModel" [(ngModel)]="_model.Password"
+                placeholder="{{'Password' | translate}}" required>
+            <mat-error *ngIf="Password.invalid && Password.touched">
+                {{ "Password field must be filled" | translate }}</mat-error>
+        </mat-form-field>
+        <button type="submit" class="btn">
+            Login
+        </button>
     </form>
 </div>

@@ -16,24 +16,42 @@ export class LogUpComponent implements OnInit {
     private _translateService: TranslateService,
     private _snackBar: MatSnackBar,
     private _userService: UserService,
-    public _router: Router,
+    public _router: Router
   ) { }
   _model: User = new User();
-  disableButton: boolean = false;
+  _patientRenew: boolean = false;
+  _action!: Function;
+  async ngOnInit() { }
 
-  async ngOnInit() {
-    this.insertActionAsync;
-  }
-  async insertActionAsync(userForm: NgForm) {
-    try {
-      this.disableButton = true;
-      await this._userService.insertAsync(userForm.value);
-      userForm.resetForm();
-      return true;
-    } catch (error) {
-      this.disableButton = false;
-      this._userService.errorNotification(error);
-      return false;
+
+  async onSave(logupForm: NgForm) {
+    let notification: any = {
+      message: '',
+      panelClass: '',
+    };
+    if (logupForm.valid) {
+      try {
+        await this._userService.insertAsync(logupForm.value);
+        logupForm.resetForm();
+        this._translateService
+          .get('User registration completed')
+          .subscribe((value) => (notification.message = value));
+        notification.panelClass = 'notification__success';
+        this._patientRenew = true;
+      } catch (error) {
+        this._userService.errorNotification(error);
+      }
+    } else {
+      this._translateService
+        .get('Please fill in the required fields')
+        .subscribe((value) => (notification.message = value));
+      notification.panelClass = 'notification__error';
     }
+    this._snackBar.open(notification.message, 'X', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom',
+      panelClass: notification.panelClass,
+    });
   }
 }

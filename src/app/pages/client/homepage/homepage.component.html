@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="row m-0 homepage__markets">
                 <div class="col-12 p-1 pl-3 m-0 homepage__markets-header">
-                    <h1 class="my-auto"><b>Wallet</b></h1>
+                    <h1 class="my-auto"><b>{{'Portfolio' | translate}}</b></h1>
                 </div>
                 <div class="col-12">
                     <div class="row m-0 p-0 w-100">
@@ -14,8 +14,7 @@
                                         <h1 class="my-auto text-white"><b>{{user.Name}} {{user.Surname}}</b></h1>
                                     </div>
                                     <div class="row" *ngFor="let product of products">
-                                        <h1 class="my-auto text-white"
-                                            *ngIf="product.State == true && product.UserId==user.id && product.Name == 'tl'">
+                                        <h1 class="my-auto text-white" *ngIf="product.Name == 'tl'">
                                             <b>{{'Asset' | translate}}: </b>{{product.Amount}} tl
                                         </h1>
                                     </div>
@@ -43,12 +42,10 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let product of products">
-                                            <td
-                                                *ngIf="product.State == true && product.UserId==user.id && product.Name != 'tl'">
+                                            <td *ngIf="product.Name != 'tl'">
                                                 {{
                                                 product.Name }}</td>
-                                            <td
-                                                *ngIf="product.State == true && product.UserId==user.id && product.Name != 'tl'">
+                                            <td *ngIf="product.Name != 'tl'">
                                                 {{
                                                 product.Amount }}</td>
                                     </tbody>

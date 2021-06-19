@@ -1,16 +1,20 @@
+.container{
+  min-height: 100vh;
+}
 .log {
     width: 100%;
     background-color: #FFFFFF;
     box-shadow: -5px -5px 20px  #212121,  5px 5px 20px  #141414;
     border-radius: 50px;
     &__stick{
+      padding-right: 2rem;
         @media (min-width: 992px) {
-            border-right: #ff8303 3px solid;
-          }
-          @media (max-width: 991px) {
-            border-bottom: #ff8303 3px solid;
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-          }
+          border-right: #a64bf4 3px solid;
+        }
+         @media (max-width: 991px) {
+          border-bottom: #ff8303 3px solid;
+          margin-bottom: 3rem;
+          padding-bottom: 3rem;
+        }
     }
 }

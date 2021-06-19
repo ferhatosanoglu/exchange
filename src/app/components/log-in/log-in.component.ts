@@ -13,19 +13,17 @@ import { User } from 'src/app/models';
 export class LogInComponent implements OnInit {
 
   constructor(
-    private _userServices: UserService,
-    private _languageService: LanguageService,
+    private _userService: UserService,
+    private _translateService: TranslateService,
     private _snackBar: MatSnackBar,
-    private _translateService: TranslateService
   ) { }
+  _model: User = new User();
 
-  model: User = new User();
-
-  ngOnInit(): void { }
-
+  ngOnInit(): void {
+  }
   onLogin(loginForm: NgForm) {
     if (loginForm.valid) {
-      this._userServices.login(loginForm.value);
+      this._userService.login(loginForm.value);
     } else {
       let errorMessage: string;
       this._translateService

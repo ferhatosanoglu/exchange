@@ -18,23 +18,49 @@ export class UserService {
       'GET',
       'Users',
       null!,
-      true
     );
   }
   async login(_user: any) {
-    const users: any = await this._apiFetchService.requestAsync(
-      'Get',
-      'Users',
-      null!
-    )
-    users.forEach((user: { Username: any; Password: any; id: any; }) => {
-      if (user.Username == _user.Username && user.Password == _user.Password) {
-        this._router.navigate([
-          'home',
-          user.id
-        ]);
+    try {
+      const user: any = await this._apiFetchService.requestAsync(
+        'Get',
+        `Users?Username=${_user.Username}`,
+        null!
+      )
+      if (user[0].Password == _user.Password) {
+        this._router.navigateByUrl(`home/${user[0].id}`);
+      } else {
+        let errorMessage: string;
+        this._translateService
+          .get('Your active password does not match !')
+          .subscribe((value) => (errorMessage = value));
+        this._snackBar.open(errorMessage!, 'X', {
+          duration: 3000,
+          panelClass: 'notification__error',
+        });
       }
-    });
+      return user;
+    } catch (error) {
+      let errorMessage: string;
+      switch (error.status) {
+        case 417:
+          this._translateService
+            .get('Please enter correct user information !')
+            .subscribe((value) => (errorMessage = value));
+          break;
+        default:
+          this._translateService
+            .get(
+              'No such user found !'
+            )
+            .subscribe((value) => (errorMessage = value));
+          break;
+      }
+      this._snackBar.open(errorMessage!, 'X', {
+        duration: 3000,
+        panelClass: 'notification__error',
+      });
+    }
   }
 
   async deleteAsync(values: any) {
@@ -65,31 +91,6 @@ export class UserService {
   errorNotification(error: { status: any; }) {
     let errorMessage: string;
     switch (error.status) {
-      case 400:
-        this._translateService
-          .get('Your active password does not match !')
-          .subscribe(value => (errorMessage = value));
-        break;
-      case 401:
-        this._translateService
-          .get('Unauthorized transaction !')
-          .subscribe(value => (errorMessage = value));
-        break;
-      case 409:
-        this._translateService
-          .get('Such an user is already registered in the system !')
-          .subscribe((value) => (errorMessage = value));
-        break;
-      case 417:
-        this._translateService
-          .get('Please enter correct category information !')
-          .subscribe((value) => (errorMessage = value));
-        break;
-      case 404:
-        this._translateService
-          .get('No user record found in the system !')
-          .subscribe((value) => (errorMessage = value));
-        break;
       default:
         this._translateService
           .get(

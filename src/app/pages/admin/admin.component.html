@@ -11,10 +11,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let product of products">
-                    <td *ngIf="product.State ==false"> {{ product.Username }} </td>
-                    <td *ngIf="product.State ==false"> {{ product.Name }}</td>
-                    <td *ngIf="product.State ==false"> {{ product.Amount }}</td>
-                    <td *ngIf="product.State ==false">
+                    <td>{{ findUser(product.UserId) }} </td>
+                    <td> {{ product.Name }}</td>
+                    <td> {{ product.Amount }}</td>
+                    <td>
                         <button type="button" class="btn btn-outline-success"
                             (click)="confirmProduct(product)">{{'Confirm' |
                             translate}}</button>

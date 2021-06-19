@@ -1,17 +1,14 @@
-<div class="container logup">
-    <div class="row">
-        <h1 class="logup__title">Log up !</h1>
-    </div>
-    <form #userForm='ngForm' (ngSubmit)="insertActionAsync(userForm)">
+<div class="container">
+    <form #logupForm="ngForm" (ngSubmit)="onSave(logupForm)">
         <div class="row w-100">
-            <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100" appearance="outline">
+            <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100">
                 <mat-label>{{"Name" | translate}}</mat-label>
                 <input matInput type="text" placeholder="{{'Name' | translate}}" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"
                     name="Name" #Name="ngModel" [(ngModel)]="_model.Name" required>
                 <mat-error *ngIf="Name.invalid && Name.touched">
                     {{ "Name field must be filled" | translate }}</mat-error>
             </mat-form-field>
-            <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100" appearance="outline">
+            <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100">
                 <mat-label>{{"Surname" | translate}}</mat-label>
                 <input matInput type="text" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="Surname" #Surname="ngModel"
                     [(ngModel)]="_model.Surname" placeholder="{{'Surname' | translate}}" required>
@@ -20,7 +17,7 @@
             </mat-form-field>
         </div>
         <div class="row w-100">
-            <mat-form-field class="mx-auto w-100" appearance="outline">
+            <mat-form-field class="mx-auto w-100">
                 <mat-label>{{"User Name" | translate}}</mat-label>
                 <input matInput type="text" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="Username" #Username="ngModel"
                     [(ngModel)]="_model.Username" placeholder="{{'User Name' | translate}}" required>
@@ -29,7 +26,7 @@
             </mat-form-field>
         </div>
         <div class="row w-100">
-            <mat-form-field class="mx-auto w-100" appearance="outline">
+            <mat-form-field class="mx-auto w-100">
                 <mat-label>{{"Email Adress" | translate}}</mat-label>
                 <input matInput type="text" pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="Email"
                     #Email="ngModel" [(ngModel)]="_model.Email" placeholder="{{'Email Adres' | translate}}" required>
@@ -38,14 +35,14 @@
             </mat-form-field>
         </div>
         <div class="row w-100">
-            <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100" appearance="outline">
+            <mat-form-field class="col-lg-6 pl-lg-0 pr-lg-1 p-0 w-100">
                 <mat-label>{{"TC No" | translate}}</mat-label>
                 <input matInput pattern="^[0-9]+$" name="TC" #TC="ngModel" maxlength="11" minlength="11"
                     [(ngModel)]="_model.TC" placeholder="{{'TC No' | translate}}" required>
                 <mat-error *ngIf="TC.invalid && TC.touched">
                     {{ "TC field must be filled" | translate }}</mat-error>
             </mat-form-field>
-            <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100" appearance="outline">
+            <mat-form-field class="col-lg-6 pr-lg-0 pl-lg-1 p-0 w-100">
                 <mat-label>{{"Phone" | translate}}</mat-label>
                 <input matInput pattern="^[0-9]+$" name="Phone" #Phone="ngModel" [(ngModel)]="_model.Phone"
                     placeholder="{{'Phone' | translate}}" required>
@@ -54,7 +51,7 @@
             </mat-form-field>
         </div>
         <div class="row w-100">
-            <mat-form-field class="mx-auto w-100" appearance="outline">
+            <mat-form-field class="mx-auto w-100">
                 <mat-label>{{"Password" | translate}}</mat-label>
                 <input matInput type="password" name="Password" #Password="ngModel" [(ngModel)]="_model.Password"
                     placeholder="{{'Password' | translate}}" required>
@@ -63,7 +60,7 @@
             </mat-form-field>
         </div>
         <div class="row w-100">
-            <mat-form-field class="mx-auto w-100" appearance="outline">
+            <mat-form-field class="mx-auto w-100">
                 <mat-label>{{"Adress" | translate}}</mat-label>
                 <input matInput type="Adress" name="Adress" #Adress="ngModel" [(ngModel)]="_model.Adress"
                     placeholder="{{'Adress' | translate}}" required>
@@ -72,7 +69,7 @@
             </mat-form-field>
         </div>
         <div class="row">
-            <button type="submit" class="logup__button mx-auto" [disabled]="disableButton">Log up</button>
+            <button type="submit" class="logup__button mx-auto">Log up</button>
         </div>
     </form>
 </div>
