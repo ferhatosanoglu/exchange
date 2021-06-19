@@ -44,14 +44,10 @@ export class AddProductComponent implements OnInit {
       this._productService.addProduct(productForm.value);
       this.dialogRef.close(this._productRenew);
     } else {
-      let errorMessage: string;
       this._translateService
         .get('Please fill in the required fields')
-        .subscribe((value) => (errorMessage = value));
-      this._snackBar.open(errorMessage!, 'X', {
-        duration: 3000,
-        panelClass: 'notification__error',
-      });
+        .subscribe((value) => (notification.message = value));
+      notification.panelClass = 'notification__error';
     }
     this._snackBar.open(notification.message, 'X', {
       duration: 3000,

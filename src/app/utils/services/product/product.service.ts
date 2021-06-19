@@ -25,7 +25,6 @@ export class ProductService {
     );
     if (this.temp[0]) {
       this.temp[0].Amount += values.Amount;
-      console.log(this.temp[0]);
       this.updateAsync(this.temp[0]);
     } else {
       return await this._apiFetchService.requestAsync(

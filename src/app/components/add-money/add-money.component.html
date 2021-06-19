@@ -8,6 +8,22 @@
 </div>
 <mat-dialog-content class="mat-typography institution-dialog__content">
   <form #moneyForm="ngForm" (ngSubmit)="addMoney(moneyForm)">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-select placeholder="{{ 'Select Currency' | translate }}" name="Name" #Name="ngModel"
+        [(ngModel)]="model.Name">
+        <mat-option [value]="1">TL</mat-option>
+        <ng-container *ngFor="let rate of rates">
+          <mat-option class="w-100" [value]="rate[1].Buying">
+            <div class="row w-100">
+              <div class="col-6 w-100">{{rate[0]}}</div>
+              <div class="col-6 w-100 d-flex justify-content-end"><small>{{" Buying Price: "}}{{rate[1].Buying}}</small>
+              </div>
+            </div>
+          </mat-option>
+        </ng-container>
+      </mat-select>
+      <mat-hint>{{"Last update date of data: " | translate}}{{rate.Update_Date}}</mat-hint>
+    </mat-form-field>
     <div class="form-group mt-2">
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>{{ "Money amount" | translate }}</mat-label>
